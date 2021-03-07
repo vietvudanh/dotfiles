@@ -1,0 +1,30 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"AlignTab",
+		"All Autocomplete",
+		"Anaconda",
+		"AutoDocstring",
+		"BracketHighlighter",
+		"CodeFormatter",
+		"Color Highlighter",
+		"Emmet",
+		"FileSystem Autocompletion",
+		"Function Name Display",
+		"FuzzyFilePath",
+		"HTML-CSS-JS Prettify",
+		"LoremIpsum",
+		"MakeCommands",
+		"MarkdownPreview",
+		"Package Control",
+		"Pretty JSON",
+		"ProjectEnvironment",
+		"SideBarEnhancements",
+		"TOML"
+	]
+}

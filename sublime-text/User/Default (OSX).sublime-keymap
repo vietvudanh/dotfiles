@@ -1,0 +1,25 @@
+[
+    {"keys": ["super+shift+w"], "command": "toggle_setting", "args": {"setting": "word_wrap"}},
+    { "keys": ["shift+command+k"], "command": "goto_definition" },
+    // swap the keybindings for paste and paste_and_indent
+    { "keys": ["super+v"], "command": "paste_and_indent" },
+    { "keys": ["super+shift+v"], "command": "paste" },
+
+    // 
+    { "keys": ["alt+super+i"], "command": "insert_date" },
+    { "keys": ["super+;"], "command": "show_overlay", "args": {"overlay": "goto", "text": "#"}},
+    
+    
+    { "keys": ["super+alt+shift+r"], "command": "goto_symbol_in_project" },
+    { "keys": ["super+shift+."], "command": "add_date_time" },
+    { "keys": ["super+alt+shift+m"], "command": "ts_convert" },
+
+    // show output
+    { 
+      "keys": ["ctrl+alt+super+r"],
+      "command": "show_panel", 
+      "args": {
+        "panel": "output.exec"
+      }
+    },
+]
