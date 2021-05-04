@@ -1,0 +1,30 @@
+# specific for MacOS
+export MAC_HOME="$HOME"
+alias cpu-info="sysctl -n machdep.cpu.brand_string"
+function pss {
+  ps aux | grep -v grep | grep -E "$1|PID"
+}
+alias pwdc="pwd | tr -d '\n' | tee | pbcopy"
+function ports {
+  sudo lsof -i -n -P | grep TCP
+}
+
+# mac need this
+alias cronedit="EDITOR=vim crontab -e"
+alias fix-ethernet="cd /Library/Preferences/SystemConfiguration && echo 'remove NetworkInterfaces.plist'"
+alias spotlight="bash $MAC_HOME/Dropbox/code/refresh_spotlight.sh"
+alias clear-icon-cache="sudo find /private/var/folders/ -name com.apple.dock.iconcache -exec rm {} \;"
+alias clear-icon-cache2="sudo rm -rfv /Library/Caches/com.apple.iconservices.store; sudo find /private/var/folders/ \( -name com.apple.dock.iconcache -or -name com.apple.iconservices \) -exec rm -rfv {} \; ; sleep 3; killall Dock; killall Finder"
+
+function a {
+    open "https://web.archive.org/web/*/`pbpaste`"
+}
+
+# tsv rows -> list
+function dt-grip {
+  if [[ -z $1 ]]; then
+    pbpaste | tail -n +2 |  paste -s -d ',' - | pbcopy
+  else
+    pbpaste | tail -n +2 | awk '{ print "\""$0"\""}' | paste -s -d ',' - | pbcopy
+  fi
+}

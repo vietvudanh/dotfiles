@@ -1,0 +1,112 @@
+# common alias/config for both system
+function filter_file {
+  grep -i "$1" $2
+}
+
+function open_file {
+  FILE=$1
+  MODE=$2
+
+  if [[ -z $MODE ]]; then
+    subl $FILE
+  else
+    vim $FILE    
+  fi
+}
+
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias disk-usage="du -sh * .*"
+
+# some other cmds
+alias ..='cd ..'
+alias ...='cd ../..'
+alias sl='subl'
+alias ll='ls -laGh'
+alias ls='ls -G'
+function vimrc {
+  open_file ~/.vim/vimrc $1
+}
+function sshconf {
+    open_file ~/.ssh/config $1
+}
+alias ss='ssh'
+alias ssp='sshp'
+function fname {
+  find . -iname "*$1*"
+}
+function pss_pid {
+  pss $1 | awk '{print $2}'
+}
+function xkill {
+  while read data ;
+  do
+    kill -9 $data
+  done
+}
+function grepi {
+  grep -i $1
+}
+
+function envgrep {
+  env | grep -i $1
+}
+
+alias e_id="awk '{print $2}'"
+
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
+function profile {
+  open_file ~/.profile $1
+}
+
+function zprofile {
+  open_file ~/.zprofile $1
+}
+function zrc {
+  open_file ~/.zshrc $1
+}
+alias reload="exec $SHELL"
+
+alias i3=ipython3
+alias i2=ipython2
+alias tm=tmux
+
+function activate {
+  if [[ -d './env' ]]; then
+    DIR='./env/bin'
+  elif [[ -d './venv' ]]; then
+    DIR='./venv/bin'
+  elif [[ -d './bin' ]]; then
+    DIR='bin'
+  elif [[ -d '../bin' ]]; then
+    DIR='../bin'
+  else
+    echo "activate dir not exists"
+    return
+  fi
+  source "$DIR/activate"
+  if [[ -f '.env' ]]; then
+    source .env
+  fi
+}
+
+alias datetime="date +%Y%m%d_%H%M%S"
+alias dt="date +%Y%m%d"
+alias ts="date +%s"
+function strptime {
+  python3 -c "
+import datetime, time
+s = '$1'
+try:
+  p =datetime.datetime.strptime(s, '%Y%m%d-%H%M%S')
+except:
+  p =datetime.datetime.strptime(s, '%Y%m%d')
+print(int(time.mktime(p.timetuple())))"
+}
+function quote_pls {
+  python3 -c "from urllib.parse import quote_plus
+print(quote_plus('$1'))
+  "
+}
