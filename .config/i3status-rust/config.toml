@@ -1,0 +1,125 @@
+icons = "awesome"
+
+[theme]
+name = "space-villain"
+
+[theme.overrides]
+separator = ""
+
+# docker
+[[block]]
+block = "docker"
+interval = 2
+format = "$running/$total"
+
+# monitors
+[[block]]
+block = "custom"
+command = "xrandr --listmonitors | tail -n+2 | tr '+' ' ' | cut -d' ' -f 4 | tr '\n' ' '"
+interval = "once"
+signal = 4
+
+
+# screenshot
+[[block]]
+block = "custom"
+interval = "once"
+command = "echo \uf030 scr" # assumes fontawesome icons
+
+[[block.click]]
+button = "left"
+cmd = "/usr/bin/bash ~/Pictures/ss.sh"
+
+
+# disk
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = "FS: $available.eng(2)"
+
+[[block.click]]
+button = "left"
+update = true
+cmd = "nautilus"
+
+
+# memory
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "$mem_avail.eng(2)/$mem_total.eng(2)"
+format_swap = "$swap_used_percents.eng(2)"
+
+
+# cpu
+[[block]]
+block = "cpu"
+interval = 1
+format = "$barchart.str() $utilization.eng()"
+format_alt = "$frequency.eng() \\|$boost.str()"
+
+
+# load
+[[block]]
+block = "load"
+format = "5m: $5m.eng(3)"
+interval = 5
+
+
+# bluetooth
+[[block]]
+block = "bluetooth"
+mac = "B0:F1:A3:76:50:F4" # fill CC2
+hide_disconnected = true
+format = ""
+
+# vpn
+[[block]]
+block = "custom"
+command = "if [[ -d /proc/sys/net/ipv4/conf/tun0 ]]; then echo 'VNPT'; else echo ''; fi"
+
+# vpn
+[[block]]
+block = "custom"
+command = "if [[ -d /proc/sys/net/ipv4/conf/wg0 ]]; then echo 'wg0'; else echo ''; fi"
+
+
+## network 
+[[block]]
+device = "wlp0s20f3"
+block = "net"
+format = "{$signal_strength $ssid|Wired connection}"
+format_alt = "$speed_down.eng(3,B,K)$speed_up.eng(3,B,K)"
+
+# sound
+[[block]]
+block = "sound"
+
+
+# battery
+[[block]]
+block = "battery"
+
+
+# time
+[[block]]
+block = "time"
+interval = 5
+format = "%a %d/%m %R"
+
+
+# power button
+[[block]]
+block = "custom"
+interval = "once"
+command = "echo PWR \uf011" # assumes fontawesome icons
+
+[[block.click]]
+button = "left"
+cmd = "systemctl `echo 'suspend\npoweroff\nreboot' | dmenu`"
+

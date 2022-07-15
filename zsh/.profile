@@ -56,3 +56,4 @@ function vl {
 
 # pip error on bigsur
 export SYSTEM_VERSION_COMPAT=1
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
