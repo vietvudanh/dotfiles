@@ -225,9 +225,10 @@ bindsym $mod+Ctrl+q exec "betterlockscreen -l dimblur --blur 0.7 --dim 70"
 #bindsym $mod+space exec "rofi -show run"
 bindsym Mod1+Ctrl+Return exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
 
+# move workspace to output left|right|down|up|current|primary|<output>
 bindsym $mod+Ctrl+Mod1+Right move workspace to output right
 bindsym $mod+Ctrl+Mod1+Left move workspace to output left
-bindsym $mod+Ctrl+Mod1+Top move workspace to output top
+bindsym $mod+Ctrl+Mod1+Top move workspace to output up
 bindsym $mod+Ctrl+Mod1+Down move workspace to output down
 
 # boot app
