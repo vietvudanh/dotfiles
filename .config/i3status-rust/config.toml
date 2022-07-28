@@ -6,6 +6,13 @@ name = "space-villain"
 [theme.overrides]
 separator = ""
 
+# pomodoro
+[[block]]
+block = "pomodoro"
+notify_cmd = "swaynag -m '{msg}'"
+blocking_cmd = true
+
+
 # docker
 [[block]]
 block = "docker"
@@ -78,15 +85,24 @@ mac = "B0:F1:A3:76:50:F4" # fill CC2
 hide_disconnected = true
 format = ""
 
-# vpn
-[[block]]
-block = "custom"
-command = "if [[ -d /proc/sys/net/ipv4/conf/tun0 ]]; then echo 'VNPT'; else echo ''; fi"
 
-# vpn
 [[block]]
-block = "custom"
-command = "if [[ -d /proc/sys/net/ipv4/conf/wg0 ]]; then echo 'wg0'; else echo ''; fi"
+block = "toggle"
+text = "VNPT"
+command_state = "if [[ -d /proc/sys/net/ipv4/conf/tun0 ]]; then echo 1; else echo ''; fi"
+command_on = "nmcli connection up vpn-VNPT"
+command_off = "nmcli connection down vpn-VNPT"
+interval = 5
+
+
+[[block]]
+block = "toggle"
+text = "wg"
+command_state = "if [[ -d /proc/sys/net/ipv4/conf/wg0 ]]; then echo 1; else echo ''; fi"
+command_on = "wg-quick up wg0"
+command_off = "wg-quick down wg0"
+interval = 5
+
 
 
 ## network 

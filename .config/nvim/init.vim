@@ -22,6 +22,9 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
+" barbar
+Plug 'romgrk/barbar.nvim'
+
 call plug#end()
 
 lua require("init")
@@ -32,7 +35,7 @@ lua require("init")
 
 
 "" =============
-" Short cuts
+" Shortcuts
 "" =============
 
 nnoremap confe :e $MYVIMRC<CR>
@@ -46,6 +49,12 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" barbar
+" Move to previous/next
+nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
+nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
+
+nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
 "" =============
 " End Short cuts
 "" =============
