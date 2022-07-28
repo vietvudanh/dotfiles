@@ -28,3 +28,9 @@ function dt-grip {
     pbpaste | tail -n +2 | awk '{ print "\""$0"\""}' | paste -s -d ',' - | pbcopy
   fi
 }
+function lower-dash {
+  echo "$@" | gsed -e 's/\(.*\)/\L\1/' | gsed 's/ /-/g'
+}
+
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+alias pipu='pip install -U pip'
