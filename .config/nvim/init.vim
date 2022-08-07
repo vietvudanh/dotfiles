@@ -25,6 +25,17 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 " barbar
 Plug 'romgrk/barbar.nvim'
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" For luasnip users.
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
 call plug#end()
 
 lua require("init")
@@ -39,9 +50,9 @@ lua require("init")
 "" =============
 
 nnoremap confe :e $MYVIMRC<CR>
-nnoremap confl :e ~/.config/neovim/lua/init.lua<CR>
+nnoremap confl :e ~/.config/nvim/lua/init.lua<CR>
 nnoremap confr :source $MYVIMRC<CR>
-nnoremap <C-b> :NvimTreeToggle<CR>
+nnoremap <leader>b :NvimTreeToggle<CR>
 
 " telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>

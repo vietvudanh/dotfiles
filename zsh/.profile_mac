@@ -34,3 +34,4 @@ function lower-dash {
 
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 alias pipu='pip install -U pip'
+alias vim='nvim'
