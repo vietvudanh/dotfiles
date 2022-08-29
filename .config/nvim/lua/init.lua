@@ -1,6 +1,9 @@
 require("nvim-tree").setup()
 require("telescope").setup()
 
+-- luasnip
+require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
+
 -- nvim-lsp
 require'lspconfig'.pyright.setup{}
 

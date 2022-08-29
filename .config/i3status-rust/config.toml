@@ -90,7 +90,7 @@ format = ""
 block = "toggle"
 text = "VNPT"
 command_state = "if [[ -d /proc/sys/net/ipv4/conf/tun0 ]]; then echo 1; else echo ''; fi"
-command_on = "nmcli connection up vpn-VNPT"
+command_on = "nmcli connection up vpn-VNPT && sudo ifconfig wlp0s20f3 mtu 1250"
 command_off = "nmcli connection down vpn-VNPT"
 interval = 5
 
@@ -99,8 +99,8 @@ interval = 5
 block = "toggle"
 text = "wg"
 command_state = "if [[ -d /proc/sys/net/ipv4/conf/wg0 ]]; then echo 1; else echo ''; fi"
-command_on = "wg-quick up wg0"
-command_off = "wg-quick down wg0"
+command_on = "sudo wg-quick up wg0"
+command_off = "sudo wg-quick down wg0"
 interval = 5
 
 
