@@ -192,7 +192,8 @@ bar {
     font pango:DejaVu Sans Mono, FontAwesome 9
 
     position bottom
-    status_command /home/vietvu/.cargo/bin/i3status-rs 
+    status_command /home/vietvu/.cargo/bin/i3status-rs
+
     colors {
         separator #666666
         background #222222
@@ -235,3 +236,12 @@ bindsym $mod+Ctrl+Mod1+Down move workspace to output down
 exec_always --no-startup-id ibus-daemon
 # exec_always --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
 exec --no-startup-id "setxkbmap -option ctrl:nocaps"
+
+# i3-gaps
+for_window [class=".*"] border pixel 0
+gaps inner 4
+gaps outer 0
+# gaps outer current plus 5
+#gaps horizontal current plus 40
+#gaps outer current toggle 60
+
