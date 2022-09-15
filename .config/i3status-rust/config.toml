@@ -6,12 +6,6 @@ name = "space-villain"
 [theme.overrides]
 separator = ""
 
-# pomodoro
-[[block]]
-block = "pomodoro"
-notify_cmd = "swaynag -m '{msg}'"
-blocking_cmd = true
-
 
 # docker
 [[block]]
