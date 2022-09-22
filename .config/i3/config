@@ -236,10 +236,12 @@ bindsym $mod+Ctrl+Mod1+Down move workspace to output down
 exec_always --no-startup-id ibus-daemon
 # exec_always --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
 exec --no-startup-id "setxkbmap -option ctrl:nocaps"
+# need this: https://github.com/jD91mZM2/xidlehook, on ubuntu: `libxcb-screensaver0-dev`
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 120 '/usr/local/bin/betterlockscreen -l dimblur --blur 0.7 --dim 70' ''
 
 # i3-gaps
 for_window [class=".*"] border pixel 0
-gaps inner 4
+gaps inner 8
 gaps outer 0
 # gaps outer current plus 5
 #gaps horizontal current plus 40
