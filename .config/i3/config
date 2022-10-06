@@ -221,7 +221,7 @@ bindsym $mod+Ctrl+Shift+Down resize shrink height 5 px or 5 ppt
 bindsym $mod+Ctrl+Shift+Left resize grow width 5 px or 5 ppt
 
 #bindsym $mod+Ctrl+q exec "i3lock -c 112233"
-bindsym $mod+Ctrl+q exec "betterlockscreen -l dimblur --blur 0.7 --dim 70"
+bindsym $mod+Ctrl+q exec "betterlockscreen -l dimblur --blur 0.7 --dim 70 --off 30"
 
 #bindsym $mod+space exec "rofi -show run"
 bindsym Mod1+Ctrl+Return exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
@@ -234,10 +234,15 @@ bindsym $mod+Ctrl+Mod1+Down move workspace to output down
 
 # boot app
 exec_always --no-startup-id ibus-daemon
+exec i3-msg 'workspace 1; exec alacritty'
+exec i3-msg 'workspace 2; exec firefox'
+
 # exec_always --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
 exec --no-startup-id "setxkbmap -option ctrl:nocaps"
+
+# idle set
 # need this: https://github.com/jD91mZM2/xidlehook, on ubuntu: `libxcb-screensaver0-dev`
-exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 '/usr/local/bin/betterlockscreen -l dimblur --blur 0.7 --dim 70' ''
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 '/usr/local/bin/betterlockscreen -l dimblur --blur 0.7 --dim 70 --off 30' ''
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 1800 'systemctl suspend' ''
 
 # i3-gaps
@@ -248,3 +253,25 @@ gaps outer 0
 #gaps horizontal current plus 40
 #gaps outer current toggle 60
 
+# workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+
+workspace "$ws1" output eDP1
+workspace "$ws2" output eDP1
+workspace "$ws3" output eDP1
+workspace "$ws4" output eDP1
+workspace "$ws5" output HDMI1
+workspace "$ws6" output HDMI1
+workspace "$ws7" output HDMI1
+workspace "$ws8" output HDMI1
+workspace "$ws9" output HDMI1
+
+# end workspaces
