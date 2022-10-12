@@ -189,8 +189,7 @@ bindsym $mod+r mode "resize"
 #}
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh --grayblocks
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 9
-
+    font pango:DejaVu Sans Mono, FontAwesome Regular 10
     position bottom
     status_command /home/vietvu/.cargo/bin/i3status-rs
 

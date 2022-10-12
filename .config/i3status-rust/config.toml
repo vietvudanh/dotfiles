@@ -1,17 +1,17 @@
-icons = "awesome"
+icons_format = "{icon}"
 
 [theme]
-name = "space-villain"
-
 [theme.overrides]
-separator = ""
+separator = " "
 
+[icons]
+icons = "awesome"
 
 # docker
 [[block]]
 block = "docker"
 interval = 2
-format = "$running/$total"
+format = "{$icon}$running/$total"
 
 # monitors
 [[block]]
@@ -41,7 +41,7 @@ alert_unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
-format = "FS: $available.eng(2)"
+format = "{$icon}FS: $available.eng(2)"
 
 [[block.click]]
 button = "left"
@@ -53,22 +53,22 @@ cmd = "nautilus"
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "$mem_avail.eng(2)/$mem_total.eng(2)"
-format_swap = "$swap_used_percents.eng(2)"
+format_mem = "{$icon}$mem_avail.eng(2)/$mem_total.eng(2)"
+format_swap = "{$icon}$swap_used_percents.eng(2)"
 
 
 # cpu
 [[block]]
 block = "cpu"
 interval = 1
-format = "$barchart.str() $utilization.eng()"
-format_alt = "$frequency.eng() \\|$boost.str()"
+format = "{$icon}$barchart.str() $utilization.eng()"
+format_alt = "{$icon}$frequency.eng() \\|$boost.str()"
 
 
 # load
 [[block]]
 block = "load"
-format = "5m: $5m.eng(3)"
+format = "{$icon}5m: $5m.eng(3)"
 interval = 5
 
 
@@ -76,40 +76,38 @@ interval = 5
 [[block]]
 block = "bluetooth"
 mac = "B0:F1:A3:76:50:F4" # fill CC2
-hide_disconnected = true
-format = ""
+format = "{$icon}$name"
 
 
 [[block]]
 block = "toggle"
-text = "VNPT"
 command_state = "if [[ -d /proc/sys/net/ipv4/conf/tun0 ]]; then echo 1; else echo ''; fi"
 command_on = "nmcli connection up vpn-VNPT && sudo ifconfig wlp0s20f3 mtu 1250"
 command_off = "nmcli connection down vpn-VNPT"
 interval = 5
+format="{$icon} VNPT"
 
 
 [[block]]
 block = "toggle"
-text = "wg"
 command_state = "if [[ -d /proc/sys/net/ipv4/conf/wg0 ]]; then echo 1; else echo ''; fi"
 command_on = "sudo wg-quick up wg0"
 command_off = "sudo wg-quick down wg0"
 interval = 5
+format="{$icon} WG"
 
 
 
-## network 
+## network
 [[block]]
 device = "wlp0s20f3"
 block = "net"
-format = "{$signal_strength $ssid|Wired connection}"
-format_alt = "$speed_down.eng(3,B,K)$speed_up.eng(3,B,K)"
+format = "{$icon}{$signal_strength $ssid|Wired connection}"
+format_alt = "{$icon}s$speed_down.eng(3,B,K) $speed_up.eng(3,B,K)"
 
 # sound
 [[block]]
 block = "sound"
-
 
 # battery
 [[block]]
