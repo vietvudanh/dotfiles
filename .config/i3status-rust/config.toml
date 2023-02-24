@@ -112,7 +112,7 @@ block = "sound"
 # battery
 [[block]]
 block = "battery"
-
+format = " $icon $percentage "
 
 # time
 [[block]]
