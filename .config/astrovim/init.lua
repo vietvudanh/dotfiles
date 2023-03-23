@@ -236,6 +236,7 @@ local config = {
          --     require("lsp_signature").setup()
          --   end,
          -- },
+         { 'codota/tabnine-nvim', run = "./dl_binaries.sh" },
 
          -- We also support a key value style plugin definition similar to NvChad:
          -- ["ray-x/lsp_signature.nvim"] = {
@@ -273,6 +274,14 @@ local config = {
       },
       ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
          -- ensure_installed = { "python" },
+      },
+      ["tabnine"] = { -- override require('tabnine').setup(...)
+         disable_auto_comment=true, 
+         accept_keymap="<Tab>",
+         dismiss_keymap = "<C-]>",
+         debounce_ms = 800,
+         suggestion_color = {gui = "#808080", cterm = 244},
+         exclude_filetypes = {"TelescopePrompt"}
       },
    },
 

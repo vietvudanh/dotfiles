@@ -14,6 +14,8 @@
     { "keys": ["super+shift+."], "command": "add_date_time" },
     { "keys": ["super+alt+shift+m"], "command": "ts_convert" },
 
+    { "keys": ["ctrl+`"], "command": "toggle_terminus_panel" },
+
     // show output
     { 
       "keys": ["ctrl+alt+super+r"],
