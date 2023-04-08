@@ -15,6 +15,11 @@
     { "keys": ["super+alt+shift+m"], "command": "ts_convert" },
 
     { "keys": ["ctrl+`"], "command": "toggle_terminus_panel" },
+    { 
+        "keys": ["ctrl+alt+t"], "command": "terminus_open", "args": {
+            "cwd": "${file_path:${folder}}"
+        }
+    },
 
     // show output
     { 
