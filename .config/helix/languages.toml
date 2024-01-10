@@ -1,0 +1,42 @@
+[[language]]
+name = "python"
+file-types = ["py", "pyi"]
+roots = ["pyproject.toml"]
+language-servers = ["pyright"]
+auto-format = true
+
+[language.formatter]
+command = "ruff"
+args = ["format", "-"]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright.config]
+reportMissingTypeStubs = false
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+autoImportCompletions = true
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config]
+settings = {args = []}
+
+[[language]]
+name = "go"
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go"]
+roots = ["Gopkg.toml", "go.mod"]
+auto-format = true
+comment-token = "//"
+language-servers = ["gopls"]
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "goimports" }
+
+[language-server.gopls]
+command = "gopls"
