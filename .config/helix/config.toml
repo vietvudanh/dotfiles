@@ -1,0 +1,52 @@
+#theme = "catppuccin_frappe"
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+true-color = true
+undercurl = true
+color-modes = true
+cursorline = true
+auto-save = true # save when window looses focus
+idle-timeout = 0
+# original gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+gutters = ["diagnostics", "spacer", "diff", "line-numbers", "spacer", "spacer"]
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.lsp]
+display-messages = true
+# display-inlay-hints = true
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+right = ["diagnostics", "version-control", "position", "file-encoding"]
+
+[editor.indent-guides]
+render = true
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+tab = "→"
+
+[editor.file-picker]
+hidden = false # show hidden files as in starting with a dot
+git-global = false # show files hidden by git globally
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal."C-backspace"]
+r = ":config-reload"
+o = ":config-open"
+l = ":o ~/.config/helix/languages.toml"
+
+[keys.insert]
+"C-[" = "normal_mode"
