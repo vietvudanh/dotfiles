@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "Batman"
+-- config.color_scheme = "Batman"
 config.keys = {
 	{
 		key = "d",
@@ -24,6 +24,33 @@ config.keys = {
 	-- Make Option-Right equivalent to Alt-f; forward-word
 	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
 }
+config.tab_bar_at_bottom = true
 
--- and finally, return the configuration to wezterm
+-- This function returns the suggested title for a tab.
+-- It prefers the title that was set via `tab:set_title()`
+-- or `wezterm cli set-tab-title`, but falls back to the
+-- title of the active pane in that tab.
+function tab_title(tab_info)
+	local title = tab_info.tab_title
+	-- if the tab title is explicitly set, take that
+	if title and #title > 0 then
+		return title
+	end
+	-- Otherwise, use the title from the active pane
+	-- in that tab
+	return tab_info.active_pane.title
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+	local title = tab_title(tab)
+
+	-- ensure that the titles fit in the available space,
+	-- and that we have room for the edges.
+	title = wezterm.truncate_right(title, max_width - 2)
+
+	return {
+		{ Text = title },
+	}
+end)
+
 return config
