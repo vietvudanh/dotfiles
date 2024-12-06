@@ -7,17 +7,25 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "format_on_save": "off",
   "features": {
     "inline_completion_provider": "supermaven"
   },
   "buffer_font_size": 13,
-  "theme": "Ayu Light",
+  "theme": "One Light",
   "assistant": {
     "default_model": {
       "provider": "google",
-      "model": "gemini-1.5-flash"
+      "model": "gemini-1.5-pro"
     },
     "version": "2",
     "provider": null
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ruff"]
+      // Or, if there are other language servers you want to use with Python
+      // "language_servers": ["pyright", "ruff"]
+    }
   }
 }
