@@ -16,16 +16,16 @@
   "assistant": {
     "default_model": {
       "provider": "google",
-      "model": "gemini-1.5-pro"
+      "model": "gemini-1.5-flash"
     },
     "version": "2",
     "provider": null
   },
   "languages": {
     "Python": {
-      "language_servers": ["ruff"]
+      // "language_servers": ["ruff"]
       // Or, if there are other language servers you want to use with Python
-      // "language_servers": ["pyright", "ruff"]
+      "language_servers": ["pyright", "ruff"]
     }
   }
 }
