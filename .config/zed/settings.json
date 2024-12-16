@@ -16,7 +16,7 @@
   "assistant": {
     "default_model": {
       "provider": "google",
-      "model": "gemini-1.5-flash"
+      "model": "gemini-2.0-flash-exp"
     },
     "version": "2",
     "provider": null
@@ -26,6 +26,22 @@
       // "language_servers": ["ruff"]
       // Or, if there are other language servers you want to use with Python
       "language_servers": ["pyright", "ruff"]
+    }
+  },
+  "language_models": {
+    "google": {
+      "available_models": [
+        {
+          "name": "gemini-exp-1206",
+          "display_name": "gemini-exp-1206",
+          "max_tokens": 2000000
+        },
+        {
+          "name": "gemini-2.0-flash-exp",
+          "display_name": "gemini-2.0-flash-exp",
+          "max_tokens": 2000000
+        }
+      ]
     }
   }
 }
