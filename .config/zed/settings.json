@@ -12,7 +12,7 @@
     "inline_completion_provider": "supermaven"
   },
   "buffer_font_size": 13,
-  "theme": "One Light",
+  "theme": "Monokai",
   "assistant": {
     "default_model": {
       "provider": "google",
@@ -26,6 +26,16 @@
       // "language_servers": ["ruff"]
       // Or, if there are other language servers you want to use with Python
       "language_servers": ["pyright", "ruff"]
+    }
+  },
+  "language_overrides": {
+    "Go": {
+      "formatter": {
+        "external": {
+          "command": "goimports",
+          "arguments": []
+        }
+      }
     }
   },
   "language_models": {
