@@ -7,12 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "show_completions_on_input": false,
   "format_on_save": "off",
   "features": {
     "inline_completion_provider": "supermaven"
   },
-  "buffer_font_size": 13,
-  "theme": "Monokai",
+  "ui_font_size": 14,
+  "buffer_font_size": 12,
+  "theme": "Ayu Mirage",
   "assistant": {
     "default_model": {
       "provider": "google",
@@ -35,6 +37,12 @@
           "command": "goimports",
           "arguments": []
         }
+      },
+      "format_on_save": {
+        "external": {
+          "command": "gofmt",
+          "arguments": []
+        }
       }
     }
   },
@@ -52,6 +60,22 @@
           "max_tokens": 2000000
         }
       ]
+    },
+    "openai": {
+      "api_url": "https://api.mistral.ai/v1",
+      "available_models": [
+        {
+          "name": "codestral-latest",
+          "display_name": "codestral-latest",
+          "max_tokens": 256000
+        },
+        {
+          "name": "mistral-large-latest",
+          "display_name": "mistral-large-latest",
+          "max_tokens": 131072
+        }
+      ],
+      "version": "1"
     }
   }
 }
