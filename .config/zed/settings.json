@@ -10,15 +10,15 @@
   "show_completions_on_input": false,
   "format_on_save": "off",
   "features": {
-    "inline_completion_provider": "supermaven"
+    "edit_prediction_provider": "supermaven"
   },
   "ui_font_size": 14,
-  "buffer_font_size": 12,
+  "buffer_font_size": 12.0,
   "theme": "macOS Classic Light",
   "assistant": {
     "default_model": {
       "provider": "google",
-      "model": "gemini-2.0-flash-exp"
+      "model": "gemini-2.0-flash"
     },
     "version": "2",
     "provider": null
@@ -27,7 +27,7 @@
     "Python": {
       // "language_servers": ["ruff"]
       // Or, if there are other language servers you want to use with Python
-      "language_servers": ["pyright", "ruff"]
+      "language_servers": ["pyright"]
     }
   },
   "language_overrides": {
@@ -49,16 +49,21 @@
   "language_models": {
     "google": {
       "available_models": [
-        {
-          "name": "gemini-exp-1206",
-          "display_name": "gemini-exp-1206",
-          "max_tokens": 2000000
-        },
-        {
-          "name": "gemini-2.0-flash-exp",
-          "display_name": "gemini-2.0-flash-exp",
-          "max_tokens": 2000000
-        }
+        // {
+        //   "name": "gemini-2.0-pro-exp-02-05",
+        //   "display_name": "gemini-2.0-pro-exp-02-05",
+        //   "max_tokens": 2000000
+        // },
+        // {
+        //   "name": "gemini-2.0-flash-001",
+        //   "display_name": "gemini-2.0-flash",
+        //   "max_tokens": 1000000
+        // },
+        // {
+        //   "name": "gemini-2.0-flash-lite-preview-02-05",
+        //   "display_name": "gemini-2.0-flash-lite-preview-02-05",
+        //   "max_tokens": 1000000
+        // }
       ]
     },
     "openai": {
@@ -72,7 +77,12 @@
         {
           "name": "mistral-large-latest",
           "display_name": "mistral-large-latest",
-          "max_tokens": 131072
+          "max_tokens": 131000
+        },
+        {
+          "name": "mistral-small-latest",
+          "display_name": "mistral-small-latest",
+          "max_tokens": 32000
         }
       ],
       "version": "1"
