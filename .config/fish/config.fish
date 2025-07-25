@@ -13,12 +13,12 @@ set --export --prepend PATH "/Users/vietvu/.rd/bin"
 set -gx PATH $PATH /Users/vietvu/.cache/lm-studio/bin
 
 # vietvu
+set -x PATH $PATH /Users/vietvu/.local/bin
 set -gx PATH $PATH /opt/homebrew/bin
 set -x GOROOT /usr/local/go
 set -x PATH $PATH $GOROOT/bin
 set -x PATH $PATH /Users/vietvu/go/bin
 set -x PATH $PATH /Users/vietvu/.cargo/bin
-set -x PATH $PATH /Users/vietvu/.local/bin
 direnv hook fish | source
 mise activate fish | source
 
@@ -69,7 +69,9 @@ function gh-clone
 end
 
 ## alias
+alias sv "source .venv/bin/activate.fish"
 alias notes "cd ~/works/github.com/vietvudanh/notes"
+alias github "cd ~/works/github.com/"
 alias dotfiles "cd ~/works/github.com/vietvudanh/dotfiles"
 alias gi-list 'gi list'
 alias gi-py 'gi python,Jetbrains,VisualStudioCode,dotenv,dbt > .gitignore'
@@ -77,3 +79,13 @@ alias gi-py 'gi python,Jetbrains,VisualStudioCode,dotenv,dbt > .gitignore'
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+set -gx GEMINI_API_KEY "$(jq -r '.models[4].apiKey' ~/.continue/config.json)"
+set -gx GOOGLE_API_KEY "$(jq -r '.models[4].apiKey' ~/.continue/config.json)"
+fish_add_path /Users/vietvu/.local/bin
+set -gx ANTHROPIC_BASE_URL http://localhost:8082
+
+# dbt aliases
+alias dbtf=/Users/vietvu/.local/bin/dbt
+fish_add_path /Users/vietvu/.local/bin
+
+string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)

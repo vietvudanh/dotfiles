@@ -23,6 +23,10 @@ config.keys = {
 	{ key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
 	-- Make Option-Right equivalent to Alt-f; forward-word
 	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
+	-- Cycle to the next pane
+    {key="RightArrow", mods="CMD", action=wezterm.action{ActivatePaneDirection="Next"}},
+    -- Cycle to the previous pane
+    {key="LeftArrow", mods="CMD", action=wezterm.action{ActivatePaneDirection="Prev"}},
 }
 config.tab_bar_at_bottom = true
 
