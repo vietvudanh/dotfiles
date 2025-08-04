@@ -88,4 +88,4 @@ set -gx ANTHROPIC_BASE_URL http://localhost:8082
 alias dbtf=/Users/vietvu/.local/bin/dbt
 fish_add_path /Users/vietvu/.local/bin
 
-string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+# string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
