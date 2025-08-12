@@ -33,6 +33,12 @@ config.keys = {
 		mods = "CMD",
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
+	-- toggle maximize pane/zoom
+	{
+		key = "f",
+		mods = "CMD|CTRL",
+		action = wezterm.action.TogglePaneZoomState,
+	},
 }
 config.tab_bar_at_bottom = true
 
