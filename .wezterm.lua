@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
--- config.color_scheme = "Batman"
+config.color_scheme = "catppuccin-latte"
 config.keys = {
 	{
 		key = "d",
@@ -24,15 +24,15 @@ config.keys = {
 	-- Make Option-Right equivalent to Alt-f; forward-word
 	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
 	-- Cycle to the next pane
-    {key="RightArrow", mods="CMD", action=wezterm.action{ActivatePaneDirection="Next"}},
-    -- Cycle to the previous pane
-    {key="LeftArrow", mods="CMD", action=wezterm.action{ActivatePaneDirection="Prev"}},
-    -- close current pane
-    {
-      key = 'w',
-      mods = 'CMD',
-      action = wezterm.action.CloseCurrentPane { confirm = true },
-    },
+	{ key = "RightArrow", mods = "CMD", action = wezterm.action({ ActivatePaneDirection = "Next" }) },
+	-- Cycle to the previous pane
+	{ key = "LeftArrow", mods = "CMD", action = wezterm.action({ ActivatePaneDirection = "Prev" }) },
+	-- close current pane
+	{
+		key = "w",
+		mods = "CMD",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
 }
 config.tab_bar_at_bottom = true
 
